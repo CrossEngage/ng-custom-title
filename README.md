@@ -1,5 +1,5 @@
 # ng-custom-title
-Angular custom titles @Component :)
+Angular custom titles @CrossEngage :)
 
 ### How to use it
 
@@ -11,14 +11,24 @@ first you need install the
   npm install ng-custon-title
 ```
 
-Then you need inject the Custom Title module to your project
-```
-  code go here
-
-```
-
-
 #### Usage
+
+##### Angular
+
+Then you need inject the Custom Title module to your project
+
+```
+import { NgCustomTitleModule } from '...path-to-module';
+
+@NgModule({
+  imports: [NgCustomTitleModule],
+  providers: []
+})
+
+export class AppModule {
+  ngDoBootstrap() {}
+}
+```
 
 On your Angular Component you can add a value to be rendered and be editable ;)
 
@@ -48,5 +58,3 @@ After that you need call the editable title component with one simple component 
   </ng-custom-title>
 
 ```
-
-
