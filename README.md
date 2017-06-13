@@ -4,11 +4,11 @@ Angular custom titles by @CrossEngage :)
 ### How to use it
 
 
-#### Instalation
+#### Installation
 
 first you need install the 
 ```
-  npm install ng-custon-title
+  npm install ng-custom-title
 ```
 
 #### Usage
