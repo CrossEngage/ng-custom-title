@@ -1,5 +1,5 @@
 # ng-custom-title
-Angular custom titles by @CrossEngage :)
+WIP - Angular custom titles by @CrossEngage :)
 
 ### How to use it
 
@@ -8,7 +8,7 @@ Angular custom titles by @CrossEngage :)
 
 first you need install the 
 ```
-  npm install ng-custom-title
+...
 ```
 
 #### Usage
