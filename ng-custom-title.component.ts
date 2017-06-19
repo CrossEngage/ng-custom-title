@@ -19,7 +19,6 @@ const ESC_KEY_CODE: number = 27;
     '(keydown)' : 'keyActions($event)'
   }
 })
-
 export class NgCustomTitleComponent {
 
   @Input() title: string;
