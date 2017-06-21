@@ -26,7 +26,7 @@ export class NgCustomTitleComponent {
   @Input() placeholder: string;
   @Input() errorText: string;
   
-  @Output('update') change = new EventEmitter<string>();
+  @Output() update = new EventEmitter<string>();
 
   @ViewChild('textarea') textareaField;
 
@@ -52,15 +52,28 @@ export class NgCustomTitleComponent {
  
   private preventMultipleBlankSpaces($event): void {
     const currentValue = $event.target.value,
-          selectionEnd = $event.target.selectionEnd;
-
+          selectionEnd = $event.target.selectionEnd,
+          previousSelectionEnd = currentValue[selectionEnd - 1],
+          currentSelectionEnd = currentValue[selectionEnd],
+          keyCode = $event.keyCode;
+    
     if (
-      ($event.keyCode === SPACE_KEY_CODE && (currentValue[selectionEnd - 1] === ' ' || currentValue[selectionEnd] === ' '))
-      || ($event.keyCode === SPACE_KEY_CODE && currentValue === '')
-    )
+      (keyCode === SPACE_KEY_CODE && (previousSelectionEnd === ' ' || currentSelectionEnd === ' '))
+      || (keyCode === SPACE_KEY_CODE && currentValue === '')
+    ) {
       $event.preventDefault();
-    else
+    }
+
+    setTimeout(() => {
+      let elementValue = this.textareaField.nativeElement.value;
+      
+      while (elementValue.charAt(0) === ' ') {
+        elementValue = elementValue.substr(1);
+        this.textareaField.nativeElement.value = elementValue;
+      }
+      
       this.emitChanges();
+    }, 0);
   }
 
   private saveOnReturnKeyPress($event): void {
@@ -92,7 +105,7 @@ export class NgCustomTitleComponent {
   }
 
   private emitChanges() {
-    setTimeout(() => this.change.emit(this.title), 0);
+    setTimeout(() => this.update.emit(this.title), 0);
   }
 
 }
