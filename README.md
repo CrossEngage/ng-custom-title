@@ -63,10 +63,10 @@ Well, are you still using AngularJS there? Don't worry! We made it fully compati
 
 Then you need inject the Custom Title to your `app.module`
 ```
-import { NgCustomTitleModule } from '...path-to-module';
+import { ngCustomTitleModule } from '...path-to-module';
 
 export const myModule = angular
-  .module('my.Module', [NgCustomTitleModule])
+  .module('my.Module', [ngCustomTitleModule])
   .name;
 
 ```
